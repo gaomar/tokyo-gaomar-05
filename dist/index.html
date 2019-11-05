@@ -1,0 +1,362 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>LINE Clova &#43; enebular連携ハンズオン</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  id="dist"
+                  title="LINE Clova &#43; enebular連携ハンズオン"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Clovaプロジェクトを作ろう！" duration="0">
+        <h2 is-upgraded>1-1. スキルチャネルの作成</h2>
+<p>下記にアクセスしてログインしてください。<br><a href="https://clova-developers.line.biz/#/" target="_blank">https://clova-developers.line.biz/</a></p>
+<p>［スキルを開発する］をクリックします。</p>
+<p class="image-container"><img alt="s300" src="img/a519c2a25fe011f2.png"></p>
+<p>［LINE Developersでスキルチャネルを新規作成］ボタンをクリックします。</p>
+<p class="image-container"><img alt="s301" src="img/2f072190a2da1a28.png"></p>
+<p>プロバイダーがまだ無い方は作成お願いします。<br>新規チャネルを作成します。</p>
+<p>チャネルは<code>handson-enebular</code>としました。［入力内容を確認する］をクリックします。</p>
+<p class="image-container"><img alt="s302" src="img/f9c0b2011dedb8f.png"></p>
+<p>2つのチェックを入れてから、［スキル開発を始める］ボタンをクリックします。</p>
+<p class="image-container"><img alt="s303" src="img/f5f61677c20deaf7.png"></p>
+<h2 is-upgraded>1-2. スキルの設定</h2>
+<p>Extension IDとスキル名を入力します。</p>
+<table>
+<tr></tr>
+<tr><td colspan="1" rowspan="1"><p>Extension ID</p>
+</td><td colspan="1" rowspan="1"><p>com.あなたの名前.handsonenebular <br>※例 com.gaomar.handsonenebular</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>スキル名</p>
+</td><td colspan="1" rowspan="1"><p>コネクトスキル</p>
+</td></tr>
+</table>
+<p class="image-container"><img alt="s304" src="img/542feef45ed285b2.png"></p>
+<p>呼び出し名（メイン）を設定します。</p>
+<table>
+<tr></tr>
+<tr><td colspan="1" rowspan="1"><p>呼び出し名（メイン）</p>
+</td><td colspan="1" rowspan="1"><p>コネクトスキル</p>
+</td></tr>
+</table>
+<p class="image-container"><img alt="s305" src="img/f30c1256741bc5df.png"></p>
+<p>最後に［作成］ボタンをクリックします。</p>
+<p class="image-container"><img alt="s306" src="img/2634e1a7e2dd0b92.png"></p>
+<h2 is-upgraded>1-3. 対話モデルを設定する</h2>
+<p>Clovaと対話するためのモデルを作成します。<br>左側メニューの対話モデルをクリックし、［対話モデルを編集する］をクリックします。</p>
+<p class="image-container"><img alt="s400" src="img/a09ab2b1e8ab34aa.png"></p>
+<p>ビルトインスロットタイプの［＋］をクリックします。</p>
+<p class="image-container"><img alt="s401" src="img/a9f3a6c241bfcf92.png"></p>
+<p>「数値と単位を取得」部分を展開して<code>CLOVA.NUMBER</code>を有効にします。</p>
+<p class="image-container"><img alt="s402" src="img/277183ac973e4c17.png"></p>
+<p>カスタムインテントの右側にある［＋］をクリックします。インテント名は「MainIntent」と入力し、［作成］ボタンをクリックします。</p>
+<p class="image-container"><img alt="s403" src="img/8d58e381b21eac9b.png"></p>
+<p>スロットリスト部分に「num」と入力し、［＋］をクリックします。</p>
+<p class="image-container"><img alt="s404" src="img/8082db6e0f3c30bc.png"></p>
+<p>スロットタイプのプルダウンメニューから<code>CLOVA.NUMBER</code>を選択します。</p>
+<p class="image-container"><img alt="s405" src="img/d7ed2c24896cff9e.png"></p>
+<p>サンプル発話リスト部分に「num」を入力し、［＋］をクリックします。</p>
+<p class="image-container"><img alt="s406" src="img/cc18f9b78c56e039.png"></p>
+<p><code>num</code>部分をマウスで選択して、出てきたポップアップメニューでnumスロットを選択します。最後に必ず［保存］ボタンをクリックします。</p>
+<p class="image-container"><img alt="s407" src="img/baa32facbcca3109.png"></p>
+<p>ビルドを行います。約3分ほどビルドに時間がかかります。</p>
+<p class="image-container"><img alt="s408" src="img/d25edfc55d55eddf.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="enebularでフローを作成しよう！" duration="0">
+        <h2 is-upgraded>2-1. enebularプロジェクトを作成する</h2>
+<p>いよいよenebularを使ってClovaと繋いでいきます。<br>enebularのページにログインしてください。</p>
+<p><a href="https://enebular.com/sign-in" target="_blank">https://enebular.com/sign-in</a></p>
+<p>ログインしたら［Create Project］ボタンをクリックします。</p>
+<p class="image-container"><img alt="s500" src="img/36e1aee0fff57b1a.png"></p>
+<p>プロジェクト名を入力して、［Submit］ボタンをクリックします。</p>
+<table>
+<tr></tr>
+<tr><td colspan="1" rowspan="1"><p>プロジェクト名</p>
+</td><td colspan="1" rowspan="1"><p>handson-enebular</p>
+</td></tr>
+</table>
+<p class="image-container"><img alt="s501" src="img/d903f9b806fef83d.png"></p>
+<p>左側メニューの「Flows」をクリックし、右下の［＋］ボタンをクリックします。</p>
+<p class="image-container"><img alt="s502" src="img/25679d4f46fca521.png"></p>
+<p>Flow名を入力して、カテゴリは<code>other</code>を選択し、［Continue］ボタンをクリックします。</p>
+<p class="image-container"><img alt="s503" src="img/73975725b0d8fcfa.png"></p>
+<p>［Edit］ボタンをクリックして、Flow画面を表示します。</p>
+<p class="image-container"><img alt="s504" src="img/fe73483a2ee1dfe2.png"></p>
+<h2 is-upgraded>2-2. Flowを作成する</h2>
+<p>Flow画面を表示して、Clovaに発話させるフローを作成します。<br>左側メニューの「入力」カテゴリにある<code>http</code>ノードをエディタにドラッグアンドドロップします。</p>
+<p>ノードをクリックして、メソッドは<code>POST</code>を選択し、URLに<code>/clova</code>と入力します。</p>
+<p class="image-container"><img alt="s505" src="img/d3e1e9409e1ba3bb.png"></p>
+<p>機能カテゴリにある<code>switch</code>ノードをドラッグアンドドロップします。<br>ノードをクリックして、各項目を埋めていきます。</p>
+<table>
+<tr></tr>
+<tr><td colspan="1" rowspan="1"><p>③プロパティ</p>
+</td><td colspan="1" rowspan="1"><p>payload.request.type</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>④ ==</p>
+</td><td colspan="1" rowspan="1"><p>LaunchRequest</p>
+</td></tr>
+</table>
+<p class="image-container"><img alt="s506" src="img/17772c398149ec48.png"></p>
+<p><code>http</code>ノードと<code>switch</code>ノードを繋ぎます。</p>
+<p class="image-container"><img alt="s507" src="img/1272b23f24d6949b.png"></p>
+<p>機能カテゴリにある<code>functions</code>ノードをドラッグアンドドロップします。ノードをクリックして、コード部分に書きコードを記述します。</p>
+<pre><code>msg.payload =
+{
+    &#34;version&#34;: &#34;1.0&#34;,
+    &#34;sessionAttributes&#34;: {},
+    &#34;response&#34;: {
+        &#34;outputSpeech&#34;: {
+            &#34;type&#34;: &#34;SimpleSpeech&#34;,
+            &#34;values&#34;: {
+                &#34;type&#34;: &#34;PlainText&#34;,
+                &#34;lang&#34;: &#34;ja&#34;,
+                &#34;value&#34;: &#34;エネブラーからこんにちは！&#34;
+            }
+        },
+        &#34;card&#34;: {},
+        &#34;directives&#34;: [],
+        &#34;shouldEndSession&#34;: false
+    }
+}
+return msg;
+</code></pre>
+<p class="image-container"><img alt="s508" src="img/34dce1cc65f5c010.png"></p>
+<p><code>switch</code>ノードを<code>function</code>ノードを繋ぎます。</p>
+<p class="image-container"><img alt="s509" src="img/11e8b0b7be88556d.png"></p>
+<p>出力カテゴリにある<code>http response</code>ノードをドラッグアンドドロップします。<br>このノードは特に設定することはありません。</p>
+<p class="image-container"><img alt="s510" src="img/e013efd746294c61.png"></p>
+<p><code>function</code>ノードと<code>http response</code>ノードを繋ぎます。</p>
+<p class="image-container"><img alt="s511" src="img/1e1ec2da28a026f7.png"></p>
+<h2 is-upgraded>2-3. Clovaと連携する</h2>
+<p>画面右上の［デプロイ］ボタンをクリックして、デプロイを行います。</p>
+<p class="image-container"><img alt="s512" src="img/e9d4a7bfbf1b75a5.png"></p>
+<p>デプロイボタンの左にiボタンがあるのでマウスオーバーします。すると、ポップアップで表示されるので、アクセスURLをメモしておきます。</p>
+<p class="image-container"><img alt="s513" src="img/f7e45f9d9ff1b81a.png"></p>
+<p>Clova Developer Centerページを開きます。左側メニューの開発設定にある［サーバー設定］をクリックします。<br>サーバーURLに先程メモしたURLを貼り付けて、その末尾に<code>/clova</code>を追加します。</p>
+<p class="image-container"><img alt="s514" src="img/ba8ba685dc7964c5.png"></p>
+<h2 is-upgraded>2-4. シミュレーターで確認する</h2>
+<p>Clova Developer Centerページのテストをクリックします。<br>シナリオテストに切り替えて、［○○を起動して］ボタンをクリックします。すると、enebularで設定した値が返ってきます。</p>
+<p class="image-container"><img alt="s515" src="img/ccf2659bc007b842.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="BMI測定に対応しよう！" duration="0">
+        <h2 is-upgraded>3-1. セッションの受け渡し</h2>
+<p>身長と体重を答えさせて、結果を発話する流れを作っていきます。<br>セッションを使って、身長データを一時的に保持して、次に来る体重の数値を使って計算してBMIを求めていきます。</p>
+<p>まず、LaunchRequestの発話を「エネブラーからこんにちは！」から「BMIを測定するよ！身長を教えてね！」に変更します。</p>
+<pre><code>msg.payload =
+{
+    &#34;version&#34;: &#34;1.0&#34;,
+    &#34;sessionAttributes&#34;: {},
+    &#34;response&#34;: {
+        &#34;outputSpeech&#34;: {
+            &#34;type&#34;: &#34;SimpleSpeech&#34;,
+            &#34;values&#34;: {
+                &#34;type&#34;: &#34;PlainText&#34;,
+                &#34;lang&#34;: &#34;ja&#34;,
+                &#34;value&#34;: &#34;BMIを測定するよ！身長を教えてね！&#34;
+            }
+        },
+        &#34;card&#34;: {},
+        &#34;directives&#34;: [],
+        &#34;shouldEndSession&#34;: false
+    }
+}
+return msg;
+</code></pre>
+<p class="image-container"><img alt="s600" src="img/c427bd9566078109.png"></p>
+<p>request.type判定をクリックして、［+追加］ボタンを2回クリックします。<br>プロパティ値に<code>IntentRequest</code>と<code>SessionEndedRequest</code>を追加します。<br>順番も気をつけてください。</p>
+<table>
+<tr></tr>
+<tr><td colspan="1" rowspan="1"><p>→ 2</p>
+</td><td colspan="1" rowspan="1"><p>IntentRequest</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>→ 3</p>
+</td><td colspan="1" rowspan="1"><p>SessionEndedRequest</p>
+</td></tr>
+</table>
+<p class="image-container"><img alt="s601" src="img/9775c58f5174f040.png"></p>
+<p>機能カテゴリにある<code>switch</code>ノードをドラッグアンドドロップします。<br>ノードをクリックし、セッション値のnullチェックを行います。</p>
+<p>payloadのsessionAttributesにセッション情報が格納されています。初回の場合は、セッション情報が無いので、null値だったらslotのheightから値を取得しています。</p>
+<table>
+<tr></tr>
+<tr><td colspan="1" rowspan="1"><p>プロパティ</p>
+</td><td colspan="1" rowspan="1"><p>payload.session.sessionAttributes.height</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>→ 1</p>
+</td><td colspan="1" rowspan="1"><p>is not null  ※プルダウンメニューから選択</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>→ 2</p>
+</td><td colspan="1" rowspan="1"><p>is null ※プルダウンメニューから選択</p>
+</td></tr>
+</table>
+<p class="image-container"><img alt="s602" src="img/ed6748ebe5105f7.png"></p>
+<p>ノードを繋ぎます</p>
+<p class="image-container"><img alt="s603" src="img/596481de79878a51.png"></p>
+<p>機能カテゴリにある<code>change</code>ノードをドラッグアンドドロップします。<br>このノードは指定した値を別の変数に格納することができます。</p>
+<table>
+<tr></tr>
+<tr><td colspan="1" rowspan="1"><p>③値の代入</p>
+</td><td colspan="1" rowspan="1"><p>height</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>④対象の値プルダウンメニュー</p>
+</td><td colspan="1" rowspan="1"><p>msg.</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>⑤対象の値</p>
+</td><td colspan="1" rowspan="1"><p>payload.session.sessionAttributes.height</p>
+</td></tr>
+</table>
+<p class="image-container"><img alt="s604" src="img/f5febabcfaa152d5.png"></p>
+<p>ノードを繋ぎます。</p>
+<p class="image-container"><img alt="s605" src="img/4646c132b2d9a2db.png"></p>
+<p>機能カテゴリにある<code>change</code>ノードをドラッグアンドドロップし、ノードを繋ぎます。<br>ノードをクリックして、スロットから対象の値を取得して変数に代入します。</p>
+<table>
+<tr></tr>
+<tr><td colspan="1" rowspan="1"><p>③値の代入</p>
+</td><td colspan="1" rowspan="1"><p>weight</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>④対象の値プルダウンメニュー</p>
+</td><td colspan="1" rowspan="1"><p>msg.</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>⑤対象の値</p>
+</td><td colspan="1" rowspan="1"><p>payload.request.intent.slots.num.value</p>
+</td></tr>
+</table>
+<p class="image-container"><img alt="s606" src="img/66a487b9a4a59aa8.png"></p>
+<p>機能カテゴリにある<code>functions</code>ノードをドラッグアンドドロップし、ノードを繋ぎます。<br>ノードをクリックして、BMI値の計算を行います。</p>
+<p>コードは以下の通り。</p>
+<pre><code>const height = msg.height;
+const weight = msg.weight;
+const bmiVal = (parseFloat(weight) / (parseFloat(height)/100 * parseFloat(height)/100)).toFixed(1);
+const speechText = `あなたのBMIは${bmiVal}です。`;
+
+msg.payload =
+{
+    &#34;version&#34;: &#34;1.0&#34;,
+    &#34;sessionAttributes&#34;: {},
+    &#34;response&#34;: {
+        &#34;outputSpeech&#34;: {
+            &#34;type&#34;: &#34;SimpleSpeech&#34;,
+            &#34;values&#34;: {
+                &#34;type&#34;: &#34;PlainText&#34;,
+                &#34;lang&#34;: &#34;ja&#34;,
+                &#34;value&#34;: speechText
+            }
+        },
+        &#34;card&#34;: {},
+        &#34;directives&#34;: [],
+        &#34;shouldEndSession&#34;: false
+    }
+}
+return msg;
+</code></pre>
+<p class="image-container"><img alt="s607" src="img/8e47f7cd6a0d693b.png"></p>
+<p>出力カテゴリにある<code>http response</code>ノードをドラッグアンドドロップし、ノードを繋ぎます。</p>
+<p class="image-container"><img alt="s608" src="img/ec7d0d4cf501d782.png"></p>
+<h2 is-upgraded>3-2. 体重を聞き出す</h2>
+<p>身長のセッションがまだ格納されていない場合は値を一旦変数に格納しておきます。<br>機能カテゴリにある<code>change</code>ノードをドラッグアンドドロップし、線で繋ぎます。<br>ノードをクリックして、変数に格納していきます。</p>
+<table>
+<tr></tr>
+<tr><td colspan="1" rowspan="1"><p>④値の代入</p>
+</td><td colspan="1" rowspan="1"><p>height</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>⑤対象の値プルダウンメニュー</p>
+</td><td colspan="1" rowspan="1"><p>msg.</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>⑥対象の値</p>
+</td><td colspan="1" rowspan="1"><p>payload.request.intent.slots.num.value</p>
+</td></tr>
+</table>
+<p class="image-container"><img alt="s609" src="img/a587583ec69c502b.png"></p>
+<p>機能カテゴリにある<code>function</code>ノードをドラッグアンドドロップし、ノードを繋ぎます。<br>ノードをクリックして、Clovaのセッションに身長データを渡しています。<br>4行目の<code>sessionAttributes</code>にセッション情報を格納することができます。</p>
+<pre><code>msg.payload =
+{
+    &#34;version&#34;: &#34;1.0&#34;,
+    &#34;sessionAttributes&#34;: {
+        &#34;height&#34;: msg.height
+    },
+    &#34;response&#34;: {
+        &#34;outputSpeech&#34;: {
+            &#34;type&#34;: &#34;SimpleSpeech&#34;,
+            &#34;values&#34;: {
+                &#34;type&#34;: &#34;PlainText&#34;,
+                &#34;lang&#34;: &#34;ja&#34;,
+                &#34;value&#34;: &#34;体重をキログラムで教えてね&#34;
+            }
+        },
+        &#34;card&#34;: {},
+        &#34;directives&#34;: [],
+        &#34;shouldEndSession&#34;: false
+    }
+}
+return msg;
+</code></pre>
+<p class="image-container"><img alt="s610" src="img/6566c275efe61123.png"></p>
+<p>出力カテゴリにある<code>http response</code>ノードをドラッグアンドドロップし、ノードを繋ぎます。</p>
+<p class="image-container"><img alt="s611" src="img/f65873a2525953bf.png"></p>
+<h2 is-upgraded>3-3. スキル終了に対応する</h2>
+<p>機能カテゴリの<code>functions</code>ノードをドラッグアンドドロップし、ノードを繋ぎます。<br>ノードをクリックして、コードを入力します。<br>16行目の<code>shouldEndSession</code>がtrueだと会話が終わり、スキルを終了することができるようになります。</p>
+<pre><code>msg.payload =
+{
+    &#34;version&#34;: &#34;1.0&#34;,
+    &#34;sessionAttributes&#34;: {},
+    &#34;response&#34;: {
+        &#34;outputSpeech&#34;: {
+            &#34;type&#34;: &#34;SimpleSpeech&#34;,
+            &#34;values&#34;: {
+                &#34;type&#34;: &#34;PlainText&#34;,
+                &#34;lang&#34;: &#34;ja&#34;,
+                &#34;value&#34;: &#34;ばいばい！&#34;
+            }
+        },
+        &#34;card&#34;: {},
+        &#34;directives&#34;: [],
+        &#34;shouldEndSession&#34;: true
+    }
+}
+return msg;
+</code></pre>
+<p class="image-container"><img alt="s612" src="img/89eb7b784df494da.png"></p>
+<p>出力カテゴリにある<code>http response</code>ノードをドラッグアンドドロップし、ノードを繋ぎます。</p>
+<p class="image-container"><img alt="s613" src="img/7647836afa4a20b.png"></p>
+<h2 is-upgraded>3-4. デプロイする</h2>
+<p>全体の図は以下の通りです。全てのノードが繋がっているか確認して、<br>デプロイボタンをクリックしてください。</p>
+<p class="image-container"><img alt="s614" src="img/9c82d473c458ae8d.png"></p>
+<p>デプロイが終われば、シミュレーターでテストしてみましょう。<br>身長と体重を入力するとBMIが返ってきます。</p>
+<p class="image-container"><img alt="s615" src="img/e4a6bae273d3de.png"></p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+
+</body>
+</html>
