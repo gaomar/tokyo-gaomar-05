@@ -27,7 +27,7 @@ id: dist
 プロバイダーがまだ無い方は作成お願いします。
 新規チャネルを作成します。
 
-チャネルは`handson-enebular`としました。［入力内容を確認する］をクリックします。
+チャネルは`handson-enebular`としました。［チャネルを作成してClova Developer Centerに移動］をクリックします。
 
 ![s302](images/s302.png)
 
@@ -139,6 +139,7 @@ Flow画面を表示して、Clovaに発話させるフローを作成します�
 
 | 項目       |       値 |
 |:-----------------|:------------------|
+|名前|request.type 判定|
 |③プロパティ|payload.request.type|
 |④ == |LaunchRequest|
 
@@ -149,6 +150,10 @@ Flow画面を表示して、Clovaに発話させるフローを作成します�
 ![s507](images/s507.png)
 
 機能カテゴリにある`functions`ノードをドラッグアンドドロップします。ノードをクリックして、コード部分に書きコードを記述します。
+
+| 項目       |       値 |
+|:-----------------|:------------------|
+|名前|LaunchRequestセリフ|
 
 ```javascript
 msg.payload =
@@ -255,6 +260,7 @@ payloadのsessionAttributesにセッション情報が格納されています�
 
 | 項目       |       値 |
 |:-----------------|:------------------|
+|名前|セッション情報取得|
 |プロパティ|payload.session.sessionAttributes.height|
 |→ 1| is not null  ※プルダウンメニューから選択|
 |→ 2| is null ※プルダウンメニューから選択|
@@ -270,6 +276,7 @@ payloadのsessionAttributesにセッション情報が格納されています�
 
 | 項目       |       値 |
 |:-----------------|:------------------|
+|名前|セッションから身長取得|
 |③値の代入|height|
 |④対象の値プルダウンメニュー|msg.|
 |⑤対象の値|payload.session.sessionAttributes.height|
@@ -285,9 +292,10 @@ payloadのsessionAttributesにセッション情報が格納されています�
 
 | 項目       |       値 |
 |:-----------------|:------------------|
-|③値の代入|weight|
-|④対象の値プルダウンメニュー|msg.|
-|⑤対象の値|payload.request.intent.slots.num.value|
+|名前|体重取得|
+|④値の代入|weight|
+|⑤対象の値プルダウンメニュー|msg.|
+|⑥対象の値|payload.request.intent.slots.num.value|
 
 ![s606](images/s606.png)
 
@@ -323,6 +331,10 @@ msg.payload =
 return msg;
 ```
 
+| 項目       |       値 |
+|:-----------------|:------------------|
+|名前|BMI計算|
+
 ![s607](images/s607.png)
 
 出力カテゴリにある`http response`ノードをドラッグアンドドロップし、ノードを繋ぎます。
@@ -336,6 +348,7 @@ return msg;
 
 | 項目       |       値 |
 |:-----------------|:------------------|
+|名前|身長取得|
 |④値の代入|height|
 |⑤対象の値プルダウンメニュー|msg.|
 |⑥対象の値|payload.request.intent.slots.num.value|
@@ -370,6 +383,10 @@ msg.payload =
 return msg;
 ```
 
+| 項目       |       値 |
+|:-----------------|:------------------|
+|名前|体重入力セリフ|
+
 ![s610](images/s610.png)
 
 出力カテゴリにある`http response`ノードをドラッグアンドドロップし、ノードを繋ぎます。
@@ -402,6 +419,11 @@ msg.payload =
 }
 return msg;
 ```
+
+| 項目       |       値 |
+|:-----------------|:------------------|
+|名前|SessionEndedRequestセリフ|
+
 
 ![s612](images/s612.png)
 
